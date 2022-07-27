@@ -1,0 +1,60 @@
+    body{
+        background: rgb(22, 33, 95);
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 2000px;
+    perspective-origin: left;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 20px solid black; */
+    border-radius: 20%;
+    position: absolute;
+    transform-style: preserve-3d;
+  animation: roll 6s linear infinite ;
+  transition: roll 5s ease-in-out;
+  /* transform: rotateY(30deg); */
+  
+}
+.container div{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background:  rgba(194, 220, 224, 0.2);
+    /* border: 2px solid rgb(199, 187, 187); */
+    border: 3px solid black;
+    
+    
+}
+.container .face  { transform: rotateY(   0deg ) translateZ( 100px ); }
+.container .back   { transform: rotateX( 180deg ) translateZ( 100px ); }
+.container .right  { transform: rotateY(  90deg ) translateZ( 100px ); }
+.container .left   { transform: rotateY( -90deg ) translateZ( 100px ); }
+.container .top    { transform: rotateX(  90deg ) translateZ( 100px ); }
+.container .bottom { transform: rotateX( -90deg ) translateZ( 100px ); } 
+@keyframes roll{
+    0%{
+        transform: rotateY(360deg) ;
+    }
+    100%{
+        transform: rotateY(0deg);
+    }}
+.face::after, .back::after, .left::after ,.right::after, .top::after, .bottom::after{
+    content: "";
+    position: fixed;
+    bottom: 1rem;
+    background: rgba(0, 255, 255, 0.9);
+    height: 200px;
+    width: 200px;
+    box-shadow: 8px 5px 2px rgb(46, 59, 59);
+    filter: blur(5rem);
+}
